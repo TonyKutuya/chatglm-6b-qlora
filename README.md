@@ -39,11 +39,11 @@
 
 注意: 如果`datasets`版本太低会报错 `NotImplementedError: Loading a dataset cached in a LocalFileSystem is not supported`.
 
-这里并没有结束，直接运行会报错 `AttributeError: /home/pc/.conda/envs/qlora/lib/python3.10/site-packages/bitsandbytes/libbitsandbytes_cpu.so: undefined symbol: cquantize_blockwise_fp16_nf4`
+这里并没有结束，直接运行会报错 `AttributeError: ~/.conda/envs/qlora/lib/python3.10/site-packages/bitsandbytes/libbitsandbytes_cpu.so: undefined symbol: cquantize_blockwise_fp16_nf4`
 
 需要执行下面操作：
 ```shell
-  cd /home/pc/.conda/envs/qlora/lib/python3.10/site-packages/bitsandbytes/
+  cd ~/.conda/envs/qlora/lib/python3.10/site-packages/bitsandbytes/
   mv libbitsandbytes_cpu.so libbitsandbytes_cpu.so.bak # 只是备份一下
   ln -s libbitsandbytes_cuda121.so libbitsandbytes_cpu.so # 创建软连接,这里的cuda121版本应该跟安装的cuda版本对齐
   cd -
