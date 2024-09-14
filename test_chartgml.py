@@ -1,0 +1,12 @@
+from transformers import AutoTokenizer, AutoModel
+tokenizer = AutoTokenizer.from_pretrained("THUDM", trust_remote_code=True)
+model = AutoModel.from_pretrained("THUDM", trust_remote_code=True).half().cuda()
+response, history = model.chat(tokenizer, "你好", history=[])
+print(response)
+print(history)
+response, history = model.chat(tokenizer, "晚上睡不着应该怎么办", history=history)
+print(response)
+print(history)
+response, history = model.chat(tokenizer, "今天天气怎么样", history=history)
+print(response)
+print(history)
