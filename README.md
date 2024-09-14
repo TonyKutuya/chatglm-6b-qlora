@@ -15,6 +15,32 @@
 
 代码中指定`model_name_or_path`为`THUDM/chatglm-6b`的话默认会去自动下载预训练模型，因为自动下载总会遇到超时问题，本文档只提供手动下载预训练模型的方式，需要拉取代码后本地创建`THUDM`目录，然后从官网：https://huggingface.co/THUDM/chatglm-6b/tree/main 下载所有文件到`THUDM`目录下。
 
+下载后目录结构如下：
+```text
+THUDM/
+├── config.json
+├── configuration_chatglm.py
+├── gitattributes
+├── ice_text.model
+├── LICENSE
+├── modeling_chatglm.py
+├── MODEL_LICENSE
+├── pytorch_model-00001-of-00008.bin
+├── pytorch_model-00002-of-00008.bin
+├── pytorch_model-00003-of-00008.bin
+├── pytorch_model-00004-of-00008.bin
+├── pytorch_model-00005-of-00008.bin
+├── pytorch_model-00006-of-00008.bin
+├── pytorch_model-00007-of-00008.bin
+├── pytorch_model-00008-of-00008.bin
+├── pytorch_model.bin.index.json
+├── quantization.py
+├── README.md
+├── test_modeling_chatglm.py
+├── tokenization_chatglm.py
+└── tokenizer_config.json
+```
+
 离线下载预训练模型：
 
 ![img.png](pics/chatglm-6b.jpg)
@@ -124,7 +150,6 @@
 -rw-rw-r-- 1  422 9月  14 11:34 adapter_config.json
 -rw-rw-r-- 1 7.1M 9月  14 11:34 adapter_model.bin
 -rw-rw-r-- 1  434 9月  14 11:34 README.md
-
 ```
 保存的adapter只有约7M的大小。
 
