@@ -9,10 +9,11 @@
 1. 环境配置
 2. 数据集介绍
 3. ChatGLM-6B的QLoRA训练完整流程
+4. QLoRA微调前后的效果比对
 
 特别说明：
 
-代码中指定model_name_or_path为THUDM/chatglm-6b的话默认会去自动下载预训练模型，因为自动下载总会遇到超时问题，本文档只提供手动下载预训练模型的方式，需要拉取代码后本地创建THUDM目录，然后从官网：https://huggingface.co/THUDM/chatglm-6b/tree/main 下载所有文件到THUDM目录下。
+代码中指定`model_name_or_path`为`THUDM/chatglm-6b`的话默认会去自动下载预训练模型，因为自动下载总会遇到超时问题，本文档只提供手动下载预训练模型的方式，需要拉取代码后本地创建`THUDM`目录，然后从官网：https://huggingface.co/THUDM/chatglm-6b/tree/main 下载所有文件到`THUDM`目录下。
 
 离线下载预训练模型：
 
@@ -36,9 +37,9 @@
   pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
 ```
 
-注意: 如果datasets版本太低会报错 NotImplementedError: Loading a dataset cached in a LocalFileSystem is not supported.
+注意: 如果`datasets`版本太低会报错 `NotImplementedError: Loading a dataset cached in a LocalFileSystem is not supported`.
 
-这里并没有结束，直接运行会报错 AttributeError: /home/pc/.conda/envs/qlora/lib/python3.10/site-packages/bitsandbytes/libbitsandbytes_cpu.so: undefined symbol: cquantize_blockwise_fp16_nf4
+这里并没有结束，直接运行会报错 `AttributeError: /home/pc/.conda/envs/qlora/lib/python3.10/site-packages/bitsandbytes/libbitsandbytes_cpu.so: undefined symbol: cquantize_blockwise_fp16_nf4`
 
 需要执行下面操作：
 ```shell
@@ -116,6 +117,22 @@
   
   ![img.png](pics/nvidia-smi.jpg)
 
+## 微调后的模型推理
+
+训练完后模型默认保存在`saved_files/chatGLM_6B_QLoRA_t32/`目录下：
+
+```text
+-rw-rw-r-- 1  422 9月  14 11:34 adapter_config.json
+-rw-rw-r-- 1 7.1M 9月  14 11:34 adapter_model.bin
+-rw-rw-r-- 1  434 9月  14 11:34 README.md
+
+```
+保存的adapter只有约7M的大小。
+
+执行下面脚本可以跑微调前后的模型效果：
+```shell
+  python inference_qlora.py
+```
 
 ## 参考
 
