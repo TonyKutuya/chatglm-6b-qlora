@@ -14,6 +14,10 @@
 
 代码中指定model_name_or_path为THUDM/chatglm-6b的话默认会去自动下载预训练模型，因为自动下载总会遇到超时问题，本文档只提供手动下载预训练模型的方式，需要拉取代码后本地创建THUDM目录，然后从官网：https://huggingface.co/THUDM/chatglm-6b/tree/main 下载所有文件到THUDM目录下。
 
+离线下载预训练模型：
+
+![img.png](pics/chatglm-6b.jpg)
+
 ## 环境配置
 
 ### 环境依赖
