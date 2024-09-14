@@ -49,9 +49,8 @@
   cd -
 ```
 
-对比一下前后的截图：
+执行操作后目录下显示效果应该如下：
 
-![img.png](pics/libbitsandbytes_cpu_1.jpg)
 ![img.png](pics/libbitsandbytes_cpu_2.jpg)
 
 ## 数据集介绍
